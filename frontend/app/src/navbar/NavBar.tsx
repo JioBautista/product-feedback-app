@@ -23,9 +23,11 @@ function NavBar() {
           </div>
         </div>
         {isOpen && (
-          <div className="bg-gray-300 flex flex-col items-center absolute right-0 p-5 max-w-[270px] gap-5 h-screen">
-            <NavMenu />
-          </div>
+          <>
+            <div className="bg-gray-100 flex flex-col items-center absolute right-0 p-5 max-w-[270px] gap-5 h-screen">
+              <NavMenu />
+            </div>
+          </>
         )}
       </div>
     </>

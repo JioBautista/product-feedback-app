@@ -1,12 +1,16 @@
 import React from "react";
 import NavBar from "./navbar/NavBar";
+import SuggestionsMenu from "./suggestions-menu/SuggestionsMenu";
 import { Outlet } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <NavBar />
-      <Outlet />
+      <div>
+        <NavBar />
+        <SuggestionsMenu />
+        <Outlet />
+      </div>
     </>
   );
 }
