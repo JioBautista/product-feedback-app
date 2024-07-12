@@ -4,7 +4,7 @@ function SuggestionDropDown() {
   const [isOpen, setOpen] = React.useState(false);
   const [title, setTitle] = React.useState("Most Upvotes");
 
-  const dropDownSelection = (title) => {
+  const dropDownSelection = (title: string) => {
     setTitle(title);
     setOpen(!isOpen);
   };
@@ -16,14 +16,14 @@ function SuggestionDropDown() {
         </p>
       </div>
       {isOpen ? (
-        <div className="absolute bg-red-200 text-gray-500 rounded-xl -bottom-64 left-0 space-y-2 p-2 cursor-pointer">
+        <div className="absolute bg-white text-gray-500 rounded-xl -bottom-[17rem] left-0 space-y-2 p-2 cursor-pointer">
           {[
             "Most Upvotes",
             "Least Upvotes",
             "Most Comments",
             "Least Comments",
           ].map((items, index) => (
-            <>
+            <React.Fragment key={index}>
               <div
                 className={`p-3 ${
                   index != 3 ? "border-b border-gray-500" : null
@@ -32,7 +32,7 @@ function SuggestionDropDown() {
               >
                 <p>{items}</p>
               </div>
-            </>
+            </React.Fragment>
           ))}
         </div>
       ) : null}
