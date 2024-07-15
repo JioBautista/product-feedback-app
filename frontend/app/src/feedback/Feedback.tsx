@@ -28,8 +28,8 @@ function Feedback() {
       }
     },
   });
+
   const suggestionsData: Suggestions[] = data;
-  console.log(suggestionsData);
   return (
     <div className="bg-gray-200 px-5 py-10 space-y-10">
       {isPending && <h1>Loading data...</h1>}

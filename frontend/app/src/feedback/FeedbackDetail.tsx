@@ -1,21 +1,48 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 function FeedbackDetail() {
+  interface FeedbackDetails {
+    id: number;
+    title: string;
+    category: string;
+    upvotes: number;
+    status: string;
+    description: string;
+  }
+  const { isPending, isError, data } = useQuery({
+    queryKey: ["feedbacks"],
+    queryFn: async function getSuggestions() {
+      try {
+        const response = await axios.get(
+          "http://127.0.0.1:8000/product-requests/"
+        );
+        const data = response.data;
+        return data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  });
+
   return (
     <React.Fragment>
       <div className="px-5 py-10 bg-gray-200">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-5">
-            <img src="/public/assets/shared/icon-arrow-left.svg" />
-            <Link to={"/"} className="text-gray-500 font-bold">
-              Go Back
-            </Link>
+        <>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-5">
+              <img src="/public/assets/shared/icon-arrow-left.svg" />
+              <Link to={"/"} className="text-gray-500 font-bold">
+                Go Back
+              </Link>
+            </div>
+            <button className="bg-blue-500 px-6 py-4 rounded-xl font-semibold tracking-wide text-white">
+              Edit Feedback
+            </button>
           </div>
-          <button className="bg-blue-500 px-6 py-4 rounded-xl font-semibold tracking-wide text-white">
-            Edit Feedback
-          </button>
-        </div>
+        </>
       </div>
     </React.Fragment>
   );
