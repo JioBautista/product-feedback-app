@@ -21,21 +21,20 @@ function Feedback() {
         const response = await axios.get(
           "http://127.0.0.1:8000/product-requests/"
         );
-        const data = response.data;
+        const data: Suggestions[] = response.data;
+        console.log(data);
         return data;
       } catch (error) {
         console.log(error);
       }
     },
   });
-
-  const suggestionsData: Suggestions[] = data;
   return (
     <div className="bg-gray-200 px-5 py-10 space-y-10">
       {isPending && <h1>Loading data...</h1>}
       {isError && <FeedBackError />}
-      {suggestionsData &&
-        suggestionsData.map((items) => (
+      {data &&
+        data.map((items) => (
           <React.Fragment key={items.id}>
             <Link className="block" to={`/${items.id}`}>
               <div className="bg-white p-5 rounded-lg space-y-3 cursor-pointer">
