@@ -32,7 +32,7 @@ function FeedbackDetail() {
   });
   return (
     <React.Fragment>
-      <div className="px-5 py-10 bg-gray-200 space-y-10">
+      <div className="px-5 py-10 bg-gray-200 space-y-10 h-screen">
         <>
           {isPending && <h1>Loading data...</h1>}
           {isError && <FeedBackError />}

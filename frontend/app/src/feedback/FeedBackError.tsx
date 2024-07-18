@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 function FeedBackError() {
   return (
     <>
@@ -11,9 +12,11 @@ function FeedBackError() {
           Got a suggestion? Found a bug that needs to be squashed? We love
           hearing about new ideas to improve our app.
         </p>
-        <button className="bg-blue-500 px-3 py-2 rounded-xl font-semibold tracking-wide text-white">
-          + Add Feedback
-        </button>
+        <Link to={"/new"}>
+          <button className="bg-blue-500 px-3 py-2 rounded-xl font-semibold tracking-wide text-white">
+            + Add Feedback
+          </button>
+        </Link>
       </div>
     </>
   );
