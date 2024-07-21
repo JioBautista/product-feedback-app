@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import FeedBackError from "./FeedBackError";
+import AddComment from "./AddComment";
 import axios from "axios";
 
 function FeedbackDetail() {
@@ -68,6 +69,7 @@ function FeedbackDetail() {
               </React.Fragment>
             ))}
         </>
+        <AddComment />
       </div>
     </React.Fragment>
   );
