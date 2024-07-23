@@ -9,3 +9,7 @@ class ProductRequests(models.Model):
     upvotes = models.IntegerField(default=0)
     status = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
+
+
+class Comments(models.Model):
+    content = models.CharField(max_length=255)
