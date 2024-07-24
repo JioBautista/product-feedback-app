@@ -13,3 +13,14 @@ class ProductRequests(models.Model):
 
 class Comments(models.Model):
     content = models.CharField(max_length=255)
+
+
+class Replies(models.Model):
+    content = models.CharField(max_length=255)
+    replyingTo = models.CharField(max_length=255)
+
+
+class Users(models.Model):
+    image = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+    username = models.CharField(max_length=255)

@@ -1,6 +1,6 @@
-from .models import ProductRequests
+from .models import ProductRequests, Comments
 from rest_framework import viewsets
-from .serializers import ProductRequestSerializer
+from .serializers import ProductRequestSerializer, CommentsSerializer
 
 # Create your views here.
 
@@ -8,3 +8,8 @@ from .serializers import ProductRequestSerializer
 class ProductRequestViewSet(viewsets.ModelViewSet):
     queryset = ProductRequests.objects.all()
     serializer_class = ProductRequestSerializer
+
+
+class CommentsViewSet(viewsets.ModelViewSet):
+    queryset = Comments.objects.all()
+    serializer_class = CommentsSerializer
