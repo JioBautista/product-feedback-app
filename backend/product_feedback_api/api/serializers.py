@@ -10,6 +10,7 @@ class CommentsSerializer(serializers.ModelSerializer):
 
 
 class ProductRequestSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = ProductRequests
         fields = "__all__"
