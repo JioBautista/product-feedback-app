@@ -12,6 +12,7 @@ function Feedback() {
     upvotes: number;
     status: string;
     description: string;
+    comments: [];
   }
 
   const { isPending, isError, data } = useQuery({
@@ -44,10 +45,17 @@ function Feedback() {
                   {items.category.charAt(0).toUpperCase() +
                     items.category.slice(1)}
                 </span>
-                <button className="bg-blue-100 font-bold px-5 py-2 rounded-lg flex items-center gap-2 hover:bg-purple-300">
-                  <img src="/public/assets/shared/icon-arrow-up.svg" />
-                  {items.upvotes}
-                </button>
+                <div className="flex justify-between items-center">
+                  <button className="bg-blue-100 font-bold px-5 py-2 rounded-lg flex items-center gap-2 hover:bg-purple-300">
+                    <img src="/public/assets/shared/icon-arrow-up.svg" />
+                    {items.upvotes}
+                  </button>
+
+                  <div className="flex items-center gap-2">
+                    <img src="/public/assets/shared/icon-comments.svg" />
+                    <p className="font-bold text-lg">{items.comments.length}</p>
+                  </div>
+                </div>
               </div>
             </Link>
           </React.Fragment>
