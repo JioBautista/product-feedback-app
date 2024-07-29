@@ -22,7 +22,6 @@ from api import views
 
 router = routers.DefaultRouter()
 router.register(r"product-requests", views.ProductRequestViewSet)
-router.register(r"comments", views.CommentsViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),

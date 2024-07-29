@@ -3,8 +3,22 @@ from django.db import models
 # Create your models here.
 
 
+class Users(models.Model):
+    image = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+    username = models.CharField(max_length=255)
+
+
+class Replies(models.Model):
+    content = models.CharField(max_length=255)
+    replyingTo = models.CharField(max_length=255)
+    user = models.ForeignKey(Users, on_delete=models.CASCADE, blank=True, null=True)
+
+
 class Comments(models.Model):
     content = models.CharField(max_length=255)
+    user = models.ForeignKey(Users, on_delete=models.CASCADE, blank=True, null=True)
+    replies = models.ManyToManyField(Replies)
 
 
 class ProductRequests(models.Model):
@@ -16,12 +30,7 @@ class ProductRequests(models.Model):
     comments = models.ManyToManyField(Comments)
 
 
-class Replies(models.Model):
-    content = models.CharField(max_length=255)
-    replyingTo = models.CharField(max_length=255)
-
-
-class Users(models.Model):
+class CurrentUser(models.Model):
     image = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
     username = models.CharField(max_length=255)
