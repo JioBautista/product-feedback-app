@@ -3,6 +3,12 @@ from rest_framework import serializers
 from drf_writable_nested import WritableNestedModelSerializer
 
 
+class CurrentUserSerializer(WritableNestedModelSerializer):
+    class Meta:
+        model = CurrentUser
+        fields = ["id", "image", "name", "username"]
+
+
 class UsersSerializer(serializers.ModelSerializer):
 
     class Meta:
