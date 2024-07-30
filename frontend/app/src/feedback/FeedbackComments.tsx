@@ -1,4 +1,5 @@
 import React from "react";
+import FeedbackUsers from "./FeedbackUsers";
 
 function FeedbackComments({ data }: any) {
   interface Comments {
@@ -14,31 +15,20 @@ function FeedbackComments({ data }: any) {
   const comments: Comments[] = data && data[0].comments;
   console.log(comments);
   return (
-    <div className="bg-white rounded-md p-5">
+    <div className="bg-white rounded-md p-8 space-y-10">
       <h1 className="text-xl font-bold">
         {comments ? comments.length : "0"} Comments
       </h1>
       <div className="space-y-10">
-        {comments &&
-          comments.map((items) => (
-            <React.Fragment key={items.id}>
-              <div className="bg-blue-200">
-                <div className="flex items-center gap-5">
-                  <img
-                    src={`/public${items.user.image.replace(
-                      "./assets",
-                      "/assets"
-                    )}`}
-                  />
-                  <div>
-                    <p>{items.user.name}</p>
-                    <p>@{items.user.username}</p>
-                  </div>
-                  <button className="grow">Reply</button>
-                </div>
-              </div>
-            </React.Fragment>
-          ))}
+        <FeedbackUsers data={comments} />
+        <div className="pl-6 space-y-10 border-l-2">
+          {comments &&
+            comments.map((items) => (
+              <React.Fragment key={items.id}>
+                <FeedbackUsers data={items.replies} />
+              </React.Fragment>
+            ))}
+        </div>
       </div>
     </div>
   );

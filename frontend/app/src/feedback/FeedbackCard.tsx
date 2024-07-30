@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import React from "react";
 
-function FeedbackCard({ data }) {
+function FeedbackCard({ data }: any) {
   interface Data {
     id: number;
     title: string;
@@ -16,7 +16,7 @@ function FeedbackCard({ data }) {
       {data &&
         data.map((items: Data) => (
           <React.Fragment key={items.id}>
-            <div className="bg-white p-5 rounded-lg space-y-3">
+            <div className="bg-white p-8 rounded-lg space-y-3">
               <Link className="block" to={`/${items.id}`}>
                 <h1 className="font-bold hover:text-blue-500">{items.title}</h1>
               </Link>
