@@ -1,5 +1,7 @@
-import { Link } from "react-router-dom";
-function NewFeedback() {
+import { Link, useParams } from "react-router-dom";
+
+function EditFeedback() {
+  const { feedbackId } = useParams();
   return (
     <div className="px-5 py-10 bg-gray-200 space-y-10 h-full">
       <div className="flex items-center gap-5">
@@ -42,6 +44,23 @@ function NewFeedback() {
         </div>
 
         <div>
+          <h2 className="font-bold mb-1">Update Status</h2>
+          <label className="mb-5 text-gray-500 block" htmlFor="category">
+            Change feature state
+          </label>
+          <select
+            name="category"
+            id="category"
+            className="bg-gray-300 p-5 cursor-pointer text-gray-800 w-full rounded-lg border-r-8 border-transparent"
+          >
+            <option value={"Suggestion"}>Suggestion</option>
+            <option value={"Planed"}>Planned</option>
+            <option value={"In-Progress"}>In-Progress</option>
+            <option value={"Live"}>Live</option>
+          </select>
+        </div>
+
+        <div>
           <h2 className="font-bold mb-1">Feedback Detail</h2>
           <label className="mb-5 text-gray-500 block" htmlFor="details">
             Include any specific comments on what should be inporved, added,
@@ -59,9 +78,12 @@ function NewFeedback() {
         <button className="bg-blue-950 px-6 py-4 rounded-lg font-semibold tracking-wide text-white w-full">
           Cancel
         </button>
+        <button className="bg-red-500 px-6 py-4 rounded-lg font-semibold tracking-wide text-white w-full">
+          Delete
+        </button>
       </div>
     </div>
   );
 }
 
-export default NewFeedback;
+export default EditFeedback;

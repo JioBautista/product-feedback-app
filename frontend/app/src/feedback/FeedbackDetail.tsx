@@ -46,9 +46,11 @@ function FeedbackDetail() {
               Go Back
             </Link>
           </div>
-          <button className="bg-blue-500 px-6 py-4 rounded-xl font-semibold tracking-wide text-white">
-            Edit Feedback
-          </button>
+          <Link className="block" to={`/edit/${feedbackId}`}>
+            <button className="bg-blue-500 px-6 py-4 rounded-xl font-semibold tracking-wide text-white">
+              Edit Feedback
+            </button>
+          </Link>
         </div>
         <FeedbackCard data={data} />
         <FeedbackComments data={data} />
