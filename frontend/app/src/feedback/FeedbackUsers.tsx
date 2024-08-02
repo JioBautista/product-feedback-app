@@ -13,7 +13,7 @@ function FeedbackUsers({ data }: any) {
     };
   }
   return (
-    <React.Fragment>
+    <>
       {data &&
         data.map((items: Comments) => (
           <React.Fragment key={items.id}>
@@ -45,7 +45,7 @@ function FeedbackUsers({ data }: any) {
             </div>
           </React.Fragment>
         ))}
-    </React.Fragment>
+    </>
   );
 }
 
