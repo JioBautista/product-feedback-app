@@ -4,7 +4,8 @@ import { Outlet } from "react-router-dom";
 
 function App() {
   return (
-    <div>
+    <div className="relative">
+      {/* <div className="bg-black z-5 absolute inset-0 opacity-50"></div> */}
       <NavBar />
       <SuggestionsMenu />
       <Outlet />

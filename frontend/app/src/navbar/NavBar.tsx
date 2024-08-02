@@ -5,7 +5,7 @@ function NavBar() {
   const [isOpen, setOpen] = React.useState(false);
   return (
     <>
-      <div className="bg-blue-500 relative md:bg-gray-500 md:p-5">
+      <div className="bg-blue-500 relative md:bg-gray-200 md:p-5">
         <div className="container mx-auto px-5 py-3 bg-blue-500 flex items-center justify-between md:bg-transparent gap-5 md:justify-center">
           <div className="md:bg-blue-500 md:w-[230px] md:h-[210px] md:pt-28 md:px-5 md:rounded-xl">
             <h1 className="text-white font-semibold tracking-wide">
@@ -13,18 +13,27 @@ function NavBar() {
             </h1>
             <h2 className="text-gray-200">Feedback Board</h2>
           </div>
-          <img
-            src="/assets/shared/mobile/icon-hamburger.svg"
-            className="cursor-pointer md:hidden"
-            onClick={() => setOpen(!isOpen)}
-          />
+
+          {isOpen ? (
+            <img
+              src="/public/assets/shared/mobile/icon-close.svg"
+              className="cursor-pointer md:hidden"
+              onClick={() => setOpen(!isOpen)}
+            />
+          ) : (
+            <img
+              src="/assets/shared/mobile/icon-hamburger.svg"
+              className="cursor-pointer md:hidden"
+              onClick={() => setOpen(!isOpen)}
+            />
+          )}
           <div className="hidden md:flex gap-5">
             <NavMenu />
           </div>
         </div>
         {isOpen && (
           <>
-            <div className="bg-gray-100 flex flex-col items-center absolute right-0 p-5 max-w-[270px] gap-5 h-screen">
+            <div className="bg-[#F7F8FD] flex flex-col items-center absolute right-0 p-5 max-w-[270px] gap-5 h-auto rounded-br-xl rounded-bl-xl">
               <NavMenu />
             </div>
           </>
