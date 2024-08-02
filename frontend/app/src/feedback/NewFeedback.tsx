@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 function NewFeedback() {
   return (
-    <div className="px-5 py-10 bg-gray-200 space-y-10 h-full">
+    <div className="px-5 py-10 bg-gray-200 space-y-10 h-screen">
       <div className="flex items-center gap-5">
         <img src="/public/assets/shared/icon-arrow-left.svg" />
         <Link to={"/"} className="text-gray-500 font-bold">

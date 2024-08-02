@@ -10,7 +10,11 @@ function Feedback() {
     staleTime: 120000,
   });
   return (
-    <div className="bg-gray-200 px-5 py-10 space-y-10">
+    <div
+      className={`bg-gray-200 px-5 py-10 space-y-10 ${
+        data ? "h-full" : "h-screen"
+      }`}
+    >
       {isPending && <h1>Loading data...</h1>}
       {isError && <FeedBackError />}
       <FeedbackCard data={data} />

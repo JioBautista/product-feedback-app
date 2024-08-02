@@ -21,7 +21,7 @@ function EditFeedback() {
   const feedbackDetails: Data[] | undefined =
     data && data.filter((item) => item.id === parseInt(feedbackId as string));
   return (
-    <div className="px-5 py-10 bg-gray-200 space-y-10 h-full">
+    <div className="px-5 py-10 bg-gray-200 space-y-10">
       <div className="flex items-center gap-5">
         <img src="/public/assets/shared/icon-arrow-left.svg" />
         <Link to={"/"} className="text-gray-500 font-bold">
