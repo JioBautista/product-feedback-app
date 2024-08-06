@@ -11,7 +11,7 @@ function Feedback() {
   });
   return (
     <div
-      className={`bg-gray-200 px-5 py-10 space-y-10 ${
+      className={`bg-gray-200 px-5 py-10 space-y-5 ${
         data ? "h-full" : "h-screen"
       }`}
     >

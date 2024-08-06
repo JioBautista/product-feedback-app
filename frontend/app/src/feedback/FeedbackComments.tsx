@@ -22,12 +22,11 @@ function FeedbackComments({ data }: any) {
       <div className="space-y-10">
         <FeedbackUsers data={comments} />
         <div className="pl-6 space-y-10 border-l-2">
-          {comments &&
-            comments.map((items) => (
-              <React.Fragment key={items.id}>
-                <FeedbackUsers data={items.replies} />
-              </React.Fragment>
-            ))}
+          {comments?.map((items) => (
+            <React.Fragment key={items.id}>
+              <FeedbackUsers data={items.replies} />
+            </React.Fragment>
+          ))}
         </div>
       </div>
     </div>

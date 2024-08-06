@@ -15,11 +15,12 @@ function FeedbackDetail() {
     staleTime: 120000,
   });
 
-  const feedbackDetails =
-    data && data.filter((item) => item.id === parseInt(feedbackId as string));
+  const feedbackDetails = data?.filter(
+    (item) => item.id === parseInt(feedbackId as string)
+  );
   return (
     <React.Fragment>
-      <div className="px-5 py-10 bg-gray-200 space-y-10">
+      <div className="px-5 py-10 bg-gray-200 space-y-5">
         {isPending && <h1>Loading data...</h1>}
         {isError && <FeedBackError />}
         <div className="flex items-center justify-between">

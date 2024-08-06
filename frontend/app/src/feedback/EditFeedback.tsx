@@ -18,8 +18,9 @@ function EditFeedback() {
     staleTime: 120000,
   });
 
-  const feedbackDetails: Data[] | undefined =
-    data && data.filter((item) => item.id === parseInt(feedbackId as string));
+  const feedbackDetails: Data[] | undefined = data?.filter(
+    (item) => item.id === parseInt(feedbackId as string)
+  );
   return (
     <div className="px-5 py-10 bg-gray-200 space-y-10">
       <div className="flex items-center gap-5">
