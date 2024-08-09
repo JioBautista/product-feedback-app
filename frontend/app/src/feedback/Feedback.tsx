@@ -9,6 +9,7 @@ function Feedback() {
     queryFn: () => fetchFeedbacks("http://127.0.0.1:8000/product-requests/"),
     staleTime: 120000,
   });
+
   return (
     <div
       className={`bg-gray-200 px-5 py-10 space-y-5 ${
