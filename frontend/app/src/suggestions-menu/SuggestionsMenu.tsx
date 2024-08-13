@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function SuggestionsMenu() {
   return (
-    <div className="bg-[#373F68] text-white md:bg-[#F7F8FD]">
+    <div className="bg-[#373F68] text-white md:bg-[#F7F8FD] px-5">
       <div className="container mx-auto px-5 py-3 flex justify-between items-center md:bg-[#373F68] md:rounded-xl">
         <SuggestionDropDown />
         <Link to={"/new"}>

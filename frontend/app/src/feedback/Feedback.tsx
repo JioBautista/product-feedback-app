@@ -11,7 +11,7 @@ function Feedback() {
   });
 
   return (
-    <div className={`bg-[#F7F8FD] ${data ? "h-full" : "h-screen"}`}>
+    <div className={`bg-[#F7F8FD] ${data ? "h-full" : "h-screen"} px-5`}>
       <div className="container mx-auto py-10 space-y-5">
         {isPending && <h1>Loading data...</h1>}
         {isError && <FeedBackError />}

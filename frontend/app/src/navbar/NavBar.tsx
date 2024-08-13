@@ -5,9 +5,9 @@ function NavBar() {
   const [isOpen, setOpen] = React.useState(false);
   return (
     <>
-      <div className="bg-blue-500 relative md:bg-[#F7F8FD]">
-        <div className="container mx-auto px-5 py-3 bg-blue-500 flex items-center justify-between md:bg-transparent gap-3 md:justify-between">
-          <div className="md:bg-blue-500 md:w-[230px] md:h-[210px] md:pt-28 md:px-5 md:rounded-xl">
+      <div className="bg-blue-500 relative md:bg-[#F7F8FD] px-5">
+        <div className="container mx-auto  py-3 bg-blue-500 flex items-center justify-between md:bg-transparent gap-5 md:justify-between">
+          <div className="md:bg-blue-500 md:w-full md:h-[210px] md:pt-28 md:px-5 md:rounded-xl">
             <h1 className="text-white font-semibold tracking-wide">
               Frontend Mentor
             </h1>
