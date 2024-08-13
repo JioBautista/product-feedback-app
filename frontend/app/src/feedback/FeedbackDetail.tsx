@@ -20,7 +20,7 @@ function FeedbackDetail() {
   );
   return (
     <React.Fragment>
-      <div className="px-5 py-10 bg-gray-200 space-y-5">
+      <div className="px-5 py-10 bg-[#F7F8FD] space-y-5 md:px-10">
         {isPending && <h1>Loading data...</h1>}
         {isError && <FeedBackError />}
         <div className="flex items-center justify-between">

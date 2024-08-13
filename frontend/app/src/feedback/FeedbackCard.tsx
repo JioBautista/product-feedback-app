@@ -15,8 +15,8 @@ function FeedbackCard({ data }: any) {
     <>
       {data?.map((items: Data) => (
         <React.Fragment key={items.id}>
-          <div className="bg-white p-8 rounded-lg w-full grid-cols-2 grid items-center gap-y-5 md:flex md:justify-between">
-            <div className="col-span-2">
+          <div className="bg-white p-8 rounded-lg w-full grid-cols-2 grid items-center gap-y-5 md:flex md:justify-between md:gap-6">
+            <div className="col-span-2 md:grow">
               <Link className="block" to={`/${items.id}`}>
                 <h1 className="font-bold hover:text-blue-500">{items.title}</h1>
               </Link>
@@ -27,7 +27,7 @@ function FeedbackCard({ data }: any) {
               </span>
             </div>
 
-            <button className="bg-blue-100 font-bold px-5 py-2 rounded-lg flex items-center gap-2 hover:bg-purple-300 justify-self-start md:order-first md:flex-col md:p-3">
+            <button className="bg-blue-100 font-bold px-5 py-2 rounded-lg flex items-center gap-2 hover:bg-purple-300 justify-self-start md:order-first md:flex-col md:p-3 md:self-start">
               <img src="/public/assets/shared/icon-arrow-up.svg" />
               {items.upvotes}
             </button>
