@@ -20,7 +20,9 @@ function FeedbackComments({ data }: any) {
         {comments ? comments.length : "0"} Comments
       </h1>
       <div className="space-y-10">
-        <FeedbackUsers data={comments} />
+        <div className="space-y-10">
+          <FeedbackUsers data={comments} />
+        </div>
         <div className="pl-6 space-y-10 border-l-2">
           {comments?.map((items) => (
             <React.Fragment key={items.id}>

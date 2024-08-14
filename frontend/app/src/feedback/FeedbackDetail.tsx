@@ -19,28 +19,26 @@ function FeedbackDetail() {
     (item) => item.id === parseInt(feedbackId as string)
   );
   return (
-    <React.Fragment>
-      <div className="px-5 py-10 bg-[#F7F8FD] space-y-5 md:px-10">
-        {isPending && <h1>Loading data...</h1>}
-        {isError && <FeedBackError />}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-5">
-            <img src="/public/assets/shared/icon-arrow-left.svg" />
-            <Link to={"/"} className="text-gray-500 font-bold">
-              Go Back
-            </Link>
-          </div>
-          <Link className="block" to={`/edit/${feedbackId}`}>
-            <button className="bg-blue-500 px-6 py-4 rounded-xl font-semibold tracking-wide text-white">
-              Edit Feedback
-            </button>
+    <div className="px-5 py-10 bg-[#F7F8FD] space-y-5 md:px-10">
+      {isPending && <h1>Loading data...</h1>}
+      {isError && <FeedBackError />}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-5">
+          <img src="/public/assets/shared/icon-arrow-left.svg" />
+          <Link to={"/"} className="text-gray-500 font-bold">
+            Go Back
           </Link>
         </div>
-        <FeedbackCard data={feedbackDetails} />
-        <FeedbackComments data={feedbackDetails} />
-        <AddComment />
+        <Link className="block" to={`/edit/${feedbackId}`}>
+          <button className="bg-blue-500 px-6 py-4 rounded-xl font-semibold tracking-wide text-white">
+            Edit Feedback
+          </button>
+        </Link>
       </div>
-    </React.Fragment>
+      <FeedbackCard data={feedbackDetails} />
+      <FeedbackComments data={feedbackDetails} />
+      <AddComment />
+    </div>
   );
 }
 

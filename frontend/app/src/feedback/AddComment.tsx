@@ -3,7 +3,7 @@ function AddComment() {
     <div className="bg-white p-5 rounded-lg space-y-3">
       <h1 className="text-2xl font-bold tracking-wide mb-5">Add Comment</h1>
       <textarea
-        className="bg-gray-200 p-5 cursor-pointer text-gray-500 w-full rounded-lg"
+        className="bg-[#F7F8FD] p-5 cursor-pointer text-gray-500 w-full rounded-lg"
         placeholder="Type your comment here"
         maxLength={250}
       ></textarea>

@@ -22,7 +22,7 @@ function EditFeedback() {
     (item) => item.id === parseInt(feedbackId as string)
   );
   return (
-    <div className="px-5 py-10 bg-gray-200 space-y-10">
+    <div className="px-5 py-10 space-y-10 md:p-10">
       <div className="flex items-center gap-5">
         <img src="/public/assets/shared/icon-arrow-left.svg" />
         <Link to={"/"} className="text-gray-500 font-bold">
@@ -40,7 +40,7 @@ function EditFeedback() {
             Add a short, descriptive headline
           </label>
           <input
-            className="bg-gray-300 p-5 cursor-pointer text-gray-800 w-full rounded-lg focus:bg-gray-200"
+            className="bg-[#F7F8FD] p-5 cursor-pointer text-gray-800 w-full rounded-lg focus:bg-gray-200"
             id="title"
             name="title"
             defaultValue={feedbackDetails && feedbackDetails[0].title}
@@ -55,7 +55,7 @@ function EditFeedback() {
           <select
             name="category"
             id="category"
-            className="bg-gray-300 p-5 cursor-pointer text-gray-800 w-full rounded-lg border-r-8 border-transparent"
+            className="bg-[#F7F8FD] p-5 cursor-pointer text-gray-800 w-full rounded-lg border-r-8 border-transparent"
             defaultValue={feedbackDetails && feedbackDetails[0].category}
           >
             <option value={"Feature"}>Feature</option>
@@ -74,7 +74,7 @@ function EditFeedback() {
           <select
             name="category"
             id="category"
-            className="bg-gray-300 p-5 cursor-pointer text-gray-800 w-full rounded-lg border-r-8 border-transparent"
+            className="bg-[#F7F8FD] p-5 cursor-pointer text-gray-800 w-full rounded-lg border-r-8 border-transparent"
             defaultValue={feedbackDetails && feedbackDetails[0].status}
           >
             <option value={"Suggestion"}>Suggestion</option>
@@ -91,22 +91,25 @@ function EditFeedback() {
             etc.
           </label>
           <textarea
-            className="bg-gray-300 p-5 cursor-pointer text-gray-800 w-full rounded-lg focus:bg-gray-200"
+            className="bg-[#F7F8FD] p-5 cursor-pointer text-gray-800 w-full rounded-lg focus:bg-gray-200"
             name="details"
             id="details"
             rows={5}
             defaultValue={feedbackDetails && feedbackDetails[0].description}
           ></textarea>
         </div>
-        <button className="bg-blue-500 px-6 py-4 rounded-lg font-semibold tracking-wide text-white w-full">
-          Save Changes
-        </button>
-        <button className="bg-blue-950 px-6 py-4 rounded-lg font-semibold tracking-wide text-white w-full">
-          Cancel
-        </button>
-        <button className="bg-red-500 px-6 py-4 rounded-lg font-semibold tracking-wide text-white w-full">
-          Delete
-        </button>
+
+        <div className="space-y-5 md:grid-cols-3 md:grid md:space-y-0 md:items-center">
+          <button className="bg-blue-500 px-6 py-4 rounded-lg font-semibold tracking-wide text-white w-full md:order-last md:justify-self-end md:w-auto">
+            Save Changes
+          </button>
+          <button className="bg-blue-950 px-6 py-4 rounded-lg font-semibold tracking-wide text-white w-full md:w-auto md:justify-self-end">
+            Cancel
+          </button>
+          <button className="bg-red-500 px-6 py-4 rounded-lg font-semibold tracking-wide text-white w-full md:order-first md:w-auto md:justify-self-start">
+            Delete
+          </button>
+        </div>
       </div>
     </div>
   );

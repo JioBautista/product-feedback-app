@@ -16,7 +16,7 @@ function FeedbackUsers({ data }: any) {
     <>
       {data?.map((items: Comments) => (
         <React.Fragment key={items.id}>
-          <div className="space-y-5">
+          <div className={`space-y-5`}>
             <div className="flex items-center gap-5">
               <img
                 src={`/public${items.user.image.replace(
@@ -33,7 +33,8 @@ function FeedbackUsers({ data }: any) {
                 Reply
               </button>
             </div>
-            <div>
+
+            <div className={`md:pl-[4.6rem]`}>
               <p className="text-gray-500">
                 <span className="text-blue-500 font-bold">
                   {items.replyingTo ? `@${items.replyingTo} ` : " "}

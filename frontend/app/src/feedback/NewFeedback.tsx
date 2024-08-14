@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 function NewFeedback() {
   return (
-    <div className="px-5 py-10 bg-gray-200 space-y-10 h-screen">
+    <div className="px-5 py-10 space-y-10 md:p-10">
       <div className="flex items-center gap-5">
         <img src="/public/assets/shared/icon-arrow-left.svg" />
         <Link to={"/"} className="text-gray-500 font-bold">
@@ -17,7 +17,7 @@ function NewFeedback() {
             Add a short, descriptive headline
           </label>
           <input
-            className="bg-gray-300 p-5 cursor-pointer text-gray-800 w-full rounded-lg focus:bg-gray-200"
+            className="bg-[#F7F8FD] p-5 cursor-pointer text-gray-800 w-full rounded-lg focus:bg-gray-200"
             id="title"
             name="title"
           />
@@ -31,7 +31,7 @@ function NewFeedback() {
           <select
             name="category"
             id="category"
-            className="bg-gray-300 p-5 cursor-pointer text-gray-800 w-full rounded-lg border-r-8 border-transparent"
+            className="bg-[#F7F8FD] p-5 cursor-pointer text-gray-800 w-full rounded-lg border-r-8 border-transparent"
           >
             <option value={"Feature"}>Feature</option>
             <option value={"UI"}>UI</option>
@@ -48,17 +48,20 @@ function NewFeedback() {
             etc.
           </label>
           <textarea
-            className="bg-gray-300 p-5 cursor-pointer text-gray-800 w-full rounded-lg focus:bg-gray-200"
+            className="bg-[#F7F8FD] p-5 cursor-pointer text-gray-800 w-full rounded-lg focus:bg-gray-200"
             name="details"
             id="details"
           ></textarea>
         </div>
-        <button className="bg-blue-500 px-6 py-4 rounded-lg font-semibold tracking-wide text-white w-full">
-          Add Feedback
-        </button>
-        <button className="bg-blue-950 px-6 py-4 rounded-lg font-semibold tracking-wide text-white w-full">
-          Cancel
-        </button>
+
+        <div className="space-y-5 md:flex md:flex-row-reverse md:items-center md:space-y-0 md:gap-5">
+          <button className="bg-blue-500 px-6 py-4 rounded-lg font-semibold tracking-wide text-white w-full md:w-auto">
+            Add Feedback
+          </button>
+          <button className="bg-blue-950 px-6 py-4 rounded-lg font-semibold tracking-wide text-white w-full md:w-auto">
+            Cancel
+          </button>
+        </div>
       </div>
     </div>
   );
