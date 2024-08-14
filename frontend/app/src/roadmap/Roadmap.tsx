@@ -5,7 +5,7 @@ import { fetchFeedbacks } from "../api/fetchFeedbacks";
 import RoadmapList from "./RoadmapList";
 
 function Roadmap() {
-  const { isPending, isError, data } = useQuery({
+  const { data } = useQuery({
     queryKey: ["feedbacks"],
     queryFn: () => fetchFeedbacks("http://127.0.0.1:8000/product-requests/"),
     staleTime: 120000,
@@ -17,17 +17,17 @@ function Roadmap() {
 
   const tabs = [
     <div>
-      <h1 className="font-bold text-lg">Planned({planned?.length})</h1>
+      <h1 className="font-bold text-lg">Planned ({planned?.length})</h1>
       <p className="text-gray-500 mb-5">Ideas prioritized for research</p>
       <RoadmapList data={planned} border={"border-[#F49F85]"} />
     </div>,
     <div>
-      <h1 className="font-bold text-lg">In-Progress({inProgress?.length})</h1>
+      <h1 className="font-bold text-lg">In-Progress ({inProgress?.length})</h1>
       <p className="text-gray-500 mb-5">Currently being developed</p>
       <RoadmapList data={inProgress} border={"border-[#AD1FEA]"} />
     </div>,
     <div>
-      <h1 className="font-bold text-lg">Live({live?.length})</h1>
+      <h1 className="font-bold text-lg">Live ({live?.length})</h1>
       <p className="text-gray-500 mb-5">Released Features</p>
       <RoadmapList data={live} border={"border-[#62BCFA]"} />
     </div>,
@@ -35,24 +35,28 @@ function Roadmap() {
 
   return (
     <div>
-      <div className="flex items-center justify-between px-5 py-10 bg-[#373F68] text-white">
-        <div>
-          <div className="flex items-center gap-5">
-            <img src="/public/assets/shared/icon-arrow-left.svg" />
-            <Link to={"/"} className="font-bold">
-              Go Back
-            </Link>
+      <div className=" bg-[#373F68] text-white md:bg-transparent p-5 md:px-10">
+        <div className="container mx-auto flex items-center justify-between bg-[#373F68] md:px-10 md:py-5 md:rounded-xl">
+          <div className="space-y-1">
+            <div className="flex items-center gap-5">
+              <img src="/public/assets/shared/icon-arrow-left.svg" />
+              <Link to={"/"} className="font-bold md:text-sm">
+                Go Back
+              </Link>
+            </div>
+            <h1 className="font-bold text-xl">Roadmap</h1>
           </div>
-          <h1 className="font-bold text-xl">Roadmap</h1>
+          <Link to={"/new"} className="block">
+            <button className="bg-blue-500 px-6 py-4 rounded-xl font-semibold tracking-wide md:text-sm">
+              + Add Feedback
+            </button>
+          </Link>
         </div>
-        <Link to={"/new"} className="block">
-          <button className="bg-blue-500 px-6 py-4 rounded-xl font-semibold tracking-wide">
-            + Add Feedback
-          </button>
-        </Link>
       </div>
 
-      <div className="flex items-center justify-between border-b-2 text-gray-400 font-semibold bg-[#F7F8FD]">
+      <div
+        className={`flex items-center justify-between border-b-2 text-gray-400 font-semibold bg-[#F7F8FD] md:hidden`}
+      >
         <button className="px-5 py-8 cursor-pointer" onClick={() => setTab(0)}>
           Planned({planned?.length})
         </button>
@@ -64,7 +68,11 @@ function Roadmap() {
         </button>
       </div>
 
-      <div className="p-5 bg-[#F7F8FD]">{tabs[tabIndex]}</div>
+      <div className="p-5 md:hidden">{tabs[tabIndex]}</div>
+
+      <div className="hidden md:grid md:grid-cols-3 md:gap-3 container mx-auto md:px-10 md:py-5">
+        {tabs}
+      </div>
     </div>
   );
 }
