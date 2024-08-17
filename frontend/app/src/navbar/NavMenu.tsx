@@ -9,14 +9,14 @@ function NavMenu() {
     staleTime: 120000,
   });
   const buttonClasses = {
-    className: "bg-[#F2F4FF] px-3 py-2 rounded-xl text-[#4661E6] font-bold",
+    className: "bg-[#F2F4FF] px-5 py-2 rounded-xl text-[#4661E6] font-bold",
   };
   const planned = data?.filter((item: any) => item.status === "planned");
   const inProgress = data?.filter((item): any => item.status === "in-progress");
   const live = data?.filter((item) => item.status === "live");
   return (
     <>
-      <div className="bg-white flex flex-wrap rounded-xl px-4 py-8 gap-3 w-[230px]">
+      <div className="bg-white flex flex-wrap rounded-xl px-4 py-8 gap-3">
         <button {...buttonClasses}>All</button>
         <button {...buttonClasses}>UI</button>
         <button {...buttonClasses}>UX</button>
@@ -24,15 +24,16 @@ function NavMenu() {
         <button {...buttonClasses}>Bug</button>
         <button {...buttonClasses}>Feature</button>
       </div>
-      <div className="bg-white px-4 py-8 rounded-xl space-y-5 w-[230px]">
-        <div className="flex justify-between">
+
+      <div className="bg-white px-4 py-8 rounded-xl space-y-5">
+        <div className="flex justify-between gap-20">
           <h1 className="font-bold">Roadmap</h1>
           <Link className="block underline text-[#4661E6]" to="/roadmap">
             View
           </Link>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-5">
           <div className="flex justify-between items-center gap-3">
             <div className="bg-[#F49F85] rounded-full w-[10px] h-[10px]"></div>
             <h1 className="text-gray-500">Planned</h1>

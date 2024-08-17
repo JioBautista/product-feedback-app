@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 
 function App() {
   return (
-    <div>
+    <div className="lg:grid lg:grid-cols-3">
       <NavBar />
       <SuggestionsMenu />
       <Outlet />
