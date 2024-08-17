@@ -11,8 +11,10 @@ function Feedback() {
   });
 
   return (
-    <div className={`bg-[#F7F8FD] px-5 md:px-10 md:pb-10`}>
-      <div className="container mx-auto py-10 space-y-5">
+    <div
+      className={`bg-[#F7F8FD] px-5 md:px-10 md:pb-10 lg:col-start-2 lg:col-end-4`}
+    >
+      <div className="container mx-auto py-10 space-y-5 lg:py-5">
         {isPending && <h1>Loading data...</h1>}
         {isError && <FeedBackError />}
         <FeedbackCard data={data} />
