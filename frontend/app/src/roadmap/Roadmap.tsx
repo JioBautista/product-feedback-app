@@ -35,8 +35,8 @@ function Roadmap() {
 
   return (
     <div>
-      <div className=" bg-[#373F68] text-white md:bg-transparent p-5 md:px-10">
-        <div className="container mx-auto flex items-center justify-between bg-[#373F68] md:px-10 md:py-5 md:rounded-xl">
+      <div className=" bg-[#373F68] text-white md:bg-transparent p-5 md:px-10 lg:px-16 xl:px-36 2xl:px-72">
+        <div className="flex items-center justify-between bg-[#373F68] md:px-10 md:py-5 md:rounded-xl">
           <div className="space-y-1">
             <div className="flex items-center gap-5">
               <img src="/public/assets/shared/icon-arrow-left.svg" />
@@ -70,7 +70,7 @@ function Roadmap() {
 
       <div className="p-5 md:hidden">{tabs[tabIndex]}</div>
 
-      <div className="hidden md:grid md:grid-cols-3 md:gap-3 container mx-auto md:px-10 md:py-5">
+      <div className="hidden md:grid md:grid-cols-3 md:gap-3 xl:gap-5 md:px-10 md:py-5 lg:px-16 xl:px-36 2xl:px-72">
         {tabs}
       </div>
     </div>

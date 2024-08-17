@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 function NewFeedback() {
   return (
-    <div className="px-5 py-10 space-y-10 md:p-10">
+    <div className="px-5 py-10 space-y-10 md:px-28">
       <div className="flex items-center gap-5">
         <img src="/public/assets/shared/icon-arrow-left.svg" />
         <Link to={"/"} className="text-gray-500 font-bold">
@@ -44,7 +44,7 @@ function NewFeedback() {
         <div>
           <h2 className="font-bold mb-1">Feedback Detail</h2>
           <label className="mb-5 text-gray-500 block" htmlFor="details">
-            Include any specific comments on what should be inporved, added,
+            Include any specific comments on what should be improved, added,
             etc.
           </label>
           <textarea
