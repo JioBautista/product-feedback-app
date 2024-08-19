@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 function NewFeedback() {
   return (
-    <div className="px-5 py-10 space-y-10 md:px-28">
+    <div className="px-5 py-10 space-y-10 max-w-[540px] mx-auto">
       <div className="flex items-center gap-5">
         <img src="/public/assets/shared/icon-arrow-left.svg" />
         <Link to={"/"} className="text-gray-500 font-bold">
@@ -55,10 +55,10 @@ function NewFeedback() {
         </div>
 
         <div className="space-y-5 md:flex md:flex-row-reverse md:items-center md:space-y-0 md:gap-5">
-          <button className="bg-blue-500 px-6 py-4 rounded-lg font-semibold tracking-wide text-white w-full md:w-auto">
+          <button className="bg-blue-500 px-4 py-3 rounded-lg font-semibold tracking-wide text-white w-full md:w-auto text-sm">
             Add Feedback
           </button>
-          <button className="bg-blue-950 px-6 py-4 rounded-lg font-semibold tracking-wide text-white w-full md:w-auto">
+          <button className="bg-blue-950 px-4 py-3 rounded-lg font-semibold tracking-wide text-white w-full md:w-auto text-sm">
             Cancel
           </button>
         </div>

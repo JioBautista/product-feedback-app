@@ -19,7 +19,7 @@ function FeedbackDetail() {
     (item) => item.id === parseInt(feedbackId as string)
   );
   return (
-    <div className="px-5 py-10 bg-[#F7F8FD] space-y-5 md:px-10">
+    <div className="px-5 py-10 bg-[#F7F8FD] space-y-5 md:px-10 max-w-[730px] mx-auto">
       {isPending && <h1>Loading data...</h1>}
       {isError && <FeedBackError />}
       <div className="flex items-center justify-between">
@@ -30,13 +30,19 @@ function FeedbackDetail() {
           </Link>
         </div>
         <Link className="block" to={`/edit/${feedbackId}`}>
-          <button className="bg-blue-500 px-6 py-4 rounded-xl font-semibold tracking-wide text-white">
+          <button className="bg-blue-500 px-6 py-4 rounded-xl font-semibold tracking-wide text-white lg:py-3 lg:px-5 text-sm">
             Edit Feedback
           </button>
         </Link>
       </div>
+
+      {/* FeedbackCard is a component where certain styles are reused in other pages ex: In Feedback component */}
       <FeedbackCard data={feedbackDetails} />
+
+      {/* FeedbackComments is a component where the users are rendered for the comment section of FeedbackDetail component */}
       <FeedbackComments data={feedbackDetails} />
+
+      {/* AddComment component is for the current user to add comments for the FeedbackDetail component */}
       <AddComment />
     </div>
   );

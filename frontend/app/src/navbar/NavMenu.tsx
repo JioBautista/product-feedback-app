@@ -9,14 +9,14 @@ function NavMenu() {
     staleTime: 120000,
   });
   const buttonClasses = {
-    className: "bg-[#F2F4FF] px-5 py-2 rounded-xl text-[#4661E6] font-bold",
+    className: "bg-[#F2F4FF] px-3 py-2 rounded-xl text-[#4661E6] font-bold",
   };
   const planned = data?.filter((item: any) => item.status === "planned");
   const inProgress = data?.filter((item): any => item.status === "in-progress");
   const live = data?.filter((item) => item.status === "live");
   return (
     <>
-      <div className="bg-white flex flex-wrap rounded-xl p-4 gap-3 max-w-[250px]">
+      <div className="bg-white flex flex-wrap rounded-xl p-4 gap-3 max-w-[250px] lg:p-5">
         <button {...buttonClasses}>All</button>
         <button {...buttonClasses}>UI</button>
         <button {...buttonClasses}>UX</button>
@@ -25,7 +25,7 @@ function NavMenu() {
         <button {...buttonClasses}>Feature</button>
       </div>
 
-      <div className="bg-white p-4 rounded-xl space-y-3">
+      <div className="bg-white p-4 rounded-xl space-y-3 lg:p-5">
         <div className="flex justify-between gap-20">
           <h1 className="font-bold">Roadmap</h1>
           <Link className="block underline text-[#4661E6]" to="/roadmap">

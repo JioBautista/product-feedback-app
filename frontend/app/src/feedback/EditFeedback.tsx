@@ -22,7 +22,7 @@ function EditFeedback() {
     (item) => item.id === parseInt(feedbackId as string)
   );
   return (
-    <div className="px-5 py-10 space-y-10 md:px-28">
+    <div className="px-5 py-10 space-y-10 max-w-[540px] mx-auto">
       <div className="flex items-center gap-5">
         <img src="/public/assets/shared/icon-arrow-left.svg" />
         <Link to={"/"} className="text-gray-500 font-bold">
@@ -100,13 +100,13 @@ function EditFeedback() {
         </div>
 
         <div className="space-y-5 md:grid-cols-3 md:grid md:space-y-0 md:items-center">
-          <button className="bg-blue-500 py-3 px-4 rounded-lg font-semibold tracking-wide text-white w-full md:order-last md:justify-self-end md:w-auto">
+          <button className="bg-blue-500 py-3 px-4 rounded-lg font-semibold tracking-wide text-white w-full md:order-last md:justify-self-end md:w-auto text-sm">
             Save Changes
           </button>
-          <button className="bg-blue-950 py-3 px-4 rounded-lg font-semibold tracking-wide text-white w-full md:w-auto md:justify-self-end">
+          <button className="bg-blue-950 py-3 px-4 rounded-lg font-semibold tracking-wide text-white w-full md:w-auto md:justify-self-end text-sm">
             Cancel
           </button>
-          <button className="bg-red-500 py-3 px-4 rounded-lg font-semibold tracking-wide text-white w-full md:order-first md:w-auto md:justify-self-start">
+          <button className="bg-red-500 py-3 px-4 rounded-lg font-semibold tracking-wide text-white w-full md:order-first md:w-auto md:justify-self-start text-sm">
             Delete
           </button>
         </div>

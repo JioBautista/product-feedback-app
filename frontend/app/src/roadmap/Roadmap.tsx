@@ -34,8 +34,8 @@ function Roadmap() {
   ];
 
   return (
-    <div>
-      <div className=" bg-[#373F68] text-white md:bg-transparent p-5 md:px-10 lg:px-16 xl:px-36 2xl:px-72">
+    <div className="max-w-[1110px] mx-auto">
+      <div className=" bg-[#373F68] text-white md:bg-transparent p-5 md:px-10">
         <div className="flex items-center justify-between bg-[#373F68] md:px-10 md:py-5 md:rounded-xl">
           <div className="space-y-1">
             <div className="flex items-center gap-5">
@@ -47,7 +47,7 @@ function Roadmap() {
             <h1 className="font-bold text-xl">Roadmap</h1>
           </div>
           <Link to={"/new"} className="block">
-            <button className="bg-blue-500 px-6 py-4 rounded-xl font-semibold tracking-wide md:text-sm">
+            <button className="bg-blue-500 px-4 py-3 rounded-xl font-semibold tracking-wide md:text-sm">
               + Add Feedback
             </button>
           </Link>
@@ -70,7 +70,7 @@ function Roadmap() {
 
       <div className="p-5 md:hidden">{tabs[tabIndex]}</div>
 
-      <div className="hidden md:grid md:grid-cols-3 md:gap-3 xl:gap-5 md:px-10 md:py-5 lg:px-16 xl:px-36 2xl:px-72">
+      <div className="hidden md:grid md:grid-cols-3 md:gap-3 xl:gap-5 px-5 md:px-10">
         {tabs}
       </div>
     </div>
