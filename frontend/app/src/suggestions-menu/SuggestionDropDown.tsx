@@ -12,11 +12,12 @@ function SuggestionDropDown() {
     <div className="relative">
       <div className="cursor-pointer" onClick={() => setOpen(!isOpen)}>
         <p>
-          <span className="text-gray-300">Sort By:</span> {title}
+          <span className="text-gray-300">Sort By :</span>
+          <span className="ml-2 font-semibold tracking-wide">{title}</span>
         </p>
       </div>
       {isOpen ? (
-        <div className="absolute bg-white text-gray-500 rounded-xl -bottom-[17rem] left-0 space-y-2 p-2 cursor-pointer">
+        <div className="absolute bg-white text-gray-500 rounded-xl -bottom-[17rem] left-0 space-y-2 p-2 cursor-pointer shadow-2xl">
           {[
             "Most Upvotes",
             "Least Upvotes",
@@ -25,9 +26,7 @@ function SuggestionDropDown() {
           ].map((items, index) => (
             <React.Fragment key={index}>
               <div
-                className={`p-3 ${
-                  index != 3 ? "border-b border-gray-500" : null
-                }`}
+                className={`p-3 ${index != 3 ? "border-b border-b-1" : null}`}
                 onClick={() => dropDownSelection(items)}
               >
                 <p>{items}</p>
