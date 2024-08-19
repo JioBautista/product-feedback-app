@@ -15,7 +15,7 @@ function FeedbackCard({ data }: any) {
     <>
       {data?.map((items: Data) => (
         <React.Fragment key={items.id}>
-          <div className="bg-white p-8 rounded-lg w-full grid-cols-2 grid items-center gap-y-5 md:flex md:justify-between md:gap-6">
+          <div className="bg-white p-6 rounded-lg w-full grid-cols-2 grid items-center gap-y-5 md:flex md:justify-between md:gap-6">
             <div className="col-span-2 md:grow">
               <Link className="block" to={`/${items.id}`}>
                 <h1 className="font-bold hover:text-blue-500">{items.title}</h1>

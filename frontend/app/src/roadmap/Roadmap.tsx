@@ -35,7 +35,7 @@ function Roadmap() {
 
   return (
     <div className="max-w-[1110px] mx-auto">
-      <div className=" bg-[#373F68] text-white md:bg-transparent p-5 md:px-10">
+      <div className=" bg-[#373F68] text-white md:bg-transparent p-5">
         <div className="flex items-center justify-between bg-[#373F68] md:px-10 md:py-5 md:rounded-xl">
           <div className="space-y-1">
             <div className="flex items-center gap-5">
@@ -70,7 +70,7 @@ function Roadmap() {
 
       <div className="p-5 md:hidden">{tabs[tabIndex]}</div>
 
-      <div className="hidden md:grid md:grid-cols-3 md:gap-3 xl:gap-5 px-5 md:px-10">
+      <div className="hidden md:grid md:grid-cols-3 md:gap-3 xl:gap-5 px-5">
         {tabs}
       </div>
     </div>
