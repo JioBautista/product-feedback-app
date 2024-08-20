@@ -26,7 +26,9 @@ function SuggestionDropDown() {
           ].map((items, index) => (
             <React.Fragment key={index}>
               <div
-                className={`p-3 ${index != 3 ? "border-b border-b-1" : null}`}
+                className={`p-3 ${
+                  index != 3 ? "border-b border-b-1" : null
+                } hover:text-[#AD1FEA]`}
                 onClick={() => dropDownSelection(items)}
               >
                 <p>{items}</p>

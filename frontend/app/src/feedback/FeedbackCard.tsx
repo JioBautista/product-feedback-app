@@ -11,14 +11,16 @@ function FeedbackCard({ data }: any) {
     description: string;
     comments: [];
   }
+  const [activeStyle, setStyle] = React.useState();
   return (
     <>
-      {data?.map((items: Data) => (
+      {data?.map((items: Data, index: number) => (
         <React.Fragment key={items.id}>
           <div className="bg-white p-6 rounded-lg w-full grid-cols-2 grid items-center gap-y-5 md:flex md:justify-between md:gap-6">
             <div className="col-span-2 md:grow">
               <Link className="block" to={`/${items.id}`}>
                 <h1 className="font-bold hover:text-blue-500">{items.title}</h1>
+                <h1>{index}</h1>
               </Link>
               <p className="text-gray-500 mb-3">{items.description}</p>
               <span className="bg-blue-100 text-blue-500 font-bold px-5 py-2 rounded-lg inline-block">
@@ -27,7 +29,12 @@ function FeedbackCard({ data }: any) {
               </span>
             </div>
 
-            <button className="bg-blue-100 font-bold px-5 py-2 rounded-lg flex items-center gap-2 hover:bg-purple-300 justify-self-start md:order-first md:flex-col md:p-3 md:self-start">
+            <button
+              className={`bg-[${
+                activeStyle === items.id ? "#4661E6" : "#F2F4FE"
+              }] font-bold px-5 py-2 rounded-lg flex items-center gap-2 hover:bg-[#3A4374]/50 justify-self-start md:order-first md:flex-col md:p-3 md:self-start`}
+              onClick={() => setStyle(items.id)}
+            >
               <img src="/public/assets/shared/icon-arrow-up.svg" />
               {items.upvotes}
             </button>
