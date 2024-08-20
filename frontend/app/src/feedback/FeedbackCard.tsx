@@ -11,7 +11,7 @@ function FeedbackCard({ data }: any) {
     description: string;
     comments: [];
   }
-  const [activeStyle, setStyle] = React.useState();
+  const [activeStyle, setStyle] = React.useState(0);
   return (
     <>
       {data?.map((items: Data, index: number) => (
@@ -30,9 +30,11 @@ function FeedbackCard({ data }: any) {
             </div>
 
             <button
-              className={`bg-[${
-                activeStyle === items.id ? "#4661E6" : "#F2F4FE"
-              }] font-bold px-5 py-2 rounded-lg flex items-center gap-2 hover:bg-[#3A4374]/50 justify-self-start md:order-first md:flex-col md:p-3 md:self-start`}
+              className={`${
+                activeStyle === items.id
+                  ? `bg-[#3A4374] text-white`
+                  : `bg-[#F2F4FE]`
+              } font-bold px-5 py-2 rounded-lg flex items-center gap-2 hover:bg-[#3A4374]/50 active:bg-[#3A4374] justify-self-start md:order-first md:flex-col md:p-3 md:self-start`}
               onClick={() => setStyle(items.id)}
             >
               <img src="/public/assets/shared/icon-arrow-up.svg" />

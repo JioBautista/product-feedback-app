@@ -7,7 +7,7 @@ function SuggestionsMenu() {
       <div className="container mx-auto px-5 py-3 flex justify-between items-center md:bg-[#373F68] md:rounded-xl">
         <SuggestionDropDown />
         <Link to={"/new"}>
-          <button className="bg-[#AD1FEA] px-5 py-4 rounded-xl font-semibold tracking-wide lg:py-3 text-sm">
+          <button className="bg-[#AD1FEA] px-5 py-4 rounded-xl font-semibold tracking-wide lg:py-3 text-sm hover:bg-[#C75AF6]">
             + Add Feedback
           </button>
         </Link>
