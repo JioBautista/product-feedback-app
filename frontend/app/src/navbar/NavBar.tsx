@@ -33,8 +33,13 @@ function NavBar() {
         </div>
         {isOpen && (
           <>
-            <div className="bg-[#F7F8FD] flex flex-col items-center absolute right-0 p-5 max-w-[270px] gap-5 h-auto rounded-br-xl rounded-bl-xl">
-              <NavMenu />
+            <div
+              className="bg-black/75 absolute top-[4.5rem] inset-x-0 h-screen z-10"
+              onClick={() => setOpen(!isOpen)}
+            >
+              <div className="bg-[#F7F8FD] flex flex-col gap-5 p-5 max-w-[270px] h-screen ml-auto">
+                <NavMenu />
+              </div>
             </div>
           </>
         )}
