@@ -13,7 +13,7 @@ function FeedBackError() {
           hearing about new ideas to improve our app.
         </p>
         <Link to={"/new"}>
-          <button className="bg-blue-500 px-3 py-2 rounded-xl font-semibold tracking-wide text-white">
+          <button className="bg-blue-500 px-3 py-2 rounded-xl font-semibold tracking-wide text-white hover:bg-[#C75AF6]">
             + Add Feedback
           </button>
         </Link>
