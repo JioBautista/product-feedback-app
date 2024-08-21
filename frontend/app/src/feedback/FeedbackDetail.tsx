@@ -30,7 +30,7 @@ function FeedbackDetail() {
           </Link>
         </div>
         <Link className="block" to={`/edit/${feedbackId}`}>
-          <button className="bg-blue-500 px-6 py-4 rounded-xl font-semibold tracking-wide text-white lg:py-3 lg:px-5 text-sm">
+          <button className="bg-blue-500 px-6 py-4 rounded-xl font-semibold tracking-wide text-white lg:py-3 lg:px-5 text-sm hover:bg-[#C75AF6]">
             Edit Feedback
           </button>
         </Link>

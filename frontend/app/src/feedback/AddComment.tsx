@@ -9,7 +9,7 @@ function AddComment() {
       ></textarea>
       <div className="flex items-center justify-between">
         <p className="text-gray-500">250 characters left</p>
-        <button className="bg-blue-500 px-6 py-4 rounded-lg font-semibold tracking-wide text-white text-sm">
+        <button className="bg-blue-500 px-6 py-4 rounded-lg font-semibold tracking-wide text-white text-sm hover:bg-[#C75AF6]">
           Post Comment
         </button>
       </div>

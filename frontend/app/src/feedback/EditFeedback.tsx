@@ -100,13 +100,13 @@ function EditFeedback() {
         </div>
 
         <div className="space-y-5 md:grid-cols-3 md:grid md:space-y-0 md:items-center">
-          <button className="bg-blue-500 py-3 px-4 rounded-lg font-semibold tracking-wide text-white w-full md:order-last md:justify-self-end md:w-auto text-sm">
+          <button className="bg-blue-500 py-3 px-4 rounded-lg font-semibold tracking-wide text-white w-full md:order-last md:justify-self-end md:w-auto text-sm hover:bg-[#C75AF6]">
             Save Changes
           </button>
-          <button className="bg-blue-950 py-3 px-4 rounded-lg font-semibold tracking-wide text-white w-full md:w-auto md:justify-self-end text-sm">
+          <button className="bg-blue-950 py-3 px-4 rounded-lg font-semibold tracking-wide text-white w-full md:w-auto md:justify-self-end text-sm hover:bg-[#656EA3]">
             Cancel
           </button>
-          <button className="bg-red-500 py-3 px-4 rounded-lg font-semibold tracking-wide text-white w-full md:order-first md:w-auto md:justify-self-start text-sm">
+          <button className="bg-red-500 py-3 px-4 rounded-lg font-semibold tracking-wide text-white w-full md:order-first md:w-auto md:justify-self-start text-sm hover:bg-[#E98888]">
             Delete
           </button>
         </div>

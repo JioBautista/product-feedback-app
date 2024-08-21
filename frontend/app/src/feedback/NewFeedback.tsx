@@ -55,10 +55,10 @@ function NewFeedback() {
         </div>
 
         <div className="space-y-5 md:flex md:flex-row-reverse md:items-center md:space-y-0 md:gap-5">
-          <button className="bg-blue-500 px-4 py-3 rounded-lg font-semibold tracking-wide text-white w-full md:w-auto text-sm">
+          <button className="bg-blue-500 px-4 py-3 rounded-lg font-semibold tracking-wide text-white w-full md:w-auto text-sm hover:bg-[#C75AF6]">
             Add Feedback
           </button>
-          <button className="bg-blue-950 px-4 py-3 rounded-lg font-semibold tracking-wide text-white w-full md:w-auto text-sm">
+          <button className="bg-blue-950 px-4 py-3 rounded-lg font-semibold tracking-wide text-white w-full md:w-auto text-sm hover:bg-[#656EA3]">
             Cancel
           </button>
         </div>

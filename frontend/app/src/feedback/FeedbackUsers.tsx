@@ -30,7 +30,7 @@ function FeedbackUsers({ data }: any) {
                 <p className="font-semibold">{items.user.name}</p>
                 <p className="text-gray-500">@{items.user.username}</p>
               </div>
-              <button className="grow text-right p-5 text-blue-500 font-semibold">
+              <button className="grow text-right p-5 text-blue-500 font-semibold hover:underline">
                 Reply
               </button>
             </div>
