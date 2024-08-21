@@ -12,7 +12,7 @@ function EditFeedback() {
     comments: [];
   }
   const { feedbackId } = useParams();
-  const { isPending, isError, data } = useQuery({
+  const { data } = useQuery({
     queryKey: ["feedbacks"],
     queryFn: () => fetchFeedbacks("http://127.0.0.1:8000/product-requests/"),
     staleTime: 120000,

@@ -40,14 +40,14 @@ function Roadmap() {
           <div className="space-y-1">
             <div className="flex items-center gap-5">
               <img src="/public/assets/shared/icon-arrow-left.svg" />
-              <Link to={"/"} className="font-bold md:text-sm">
+              <Link to={"/"} className="font-bold md:text-sm hover:underline">
                 Go Back
               </Link>
             </div>
             <h1 className="font-bold text-xl">Roadmap</h1>
           </div>
           <Link to={"/new"} className="block">
-            <button className="bg-blue-500 px-4 py-3 rounded-xl font-semibold tracking-wide md:text-sm">
+            <button className="bg-blue-500 px-4 py-3 rounded-xl font-semibold tracking-wide md:text-sm hover:bg-[#C75AF6]">
               + Add Feedback
             </button>
           </Link>
