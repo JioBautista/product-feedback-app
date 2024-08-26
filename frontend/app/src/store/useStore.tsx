@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
 export const useStore = create((set) => ({
-  data: null,
-  setData: (newData) => set({ data: newData }),
+  filter: null,
+  setFilter: (filter: string) => set({ filter: filter }),
 }));

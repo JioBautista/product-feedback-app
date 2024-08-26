@@ -2,25 +2,19 @@ import { Link, useParams } from "react-router-dom";
 import FeedbackComments from "./FeedbackComments";
 import FeedbackCard from "./FeedbackCard";
 import AddComment from "./AddComment";
-import { QueryCache } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
 function FeedbackDetail() {
   const { feedbackId } = useParams();
-  const queryCache = new QueryCache({
-    onError: (error) => {
-      console.log(error);
-    },
-    onSuccess: (data) => {
-      console.log(data);
-    },
+  const { data } = useQuery({
+    queryKey: ["feedbacks"],
+    staleTime: 120000,
   });
-  const query = queryCache.find({ queryKey: ["feedbacks"] });
 
-  const feedbackDetails = query?.filter(
+  const feedbackDetails = data?.filter(
     (item) => item.id === parseInt(feedbackId as string)
   );
 
-  console.log(query);
   return (
     <div className="px-5 py-10 bg-[#F7F8FD] space-y-5 md:px-10 max-w-[730px] mx-auto">
       <div className="flex items-center justify-between">

@@ -13,7 +13,6 @@ function FeedbackComments({ data }: any) {
     };
   }
   const comments: Comments[] = data && data[0].comments;
-  console.log(comments);
   return (
     <div className="bg-white rounded-md p-8 space-y-1">
       <h1 className="text-xl font-semibold">

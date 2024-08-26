@@ -13,8 +13,6 @@ export const fetchFeedbacks = async (url: string) => {
   try {
     const response = await axios.get(url);
     const data: Data[] = response.data;
-
-    console.log(data);
     return data;
   } catch (error) {
     console.log(error);
