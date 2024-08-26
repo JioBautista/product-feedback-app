@@ -1,26 +1,28 @@
 import { Link, useParams } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import { fetchFeedbacks } from "../api/fetchFeedbacks";
-import FeedBackError from "./FeedBackError";
 import FeedbackComments from "./FeedbackComments";
 import FeedbackCard from "./FeedbackCard";
 import AddComment from "./AddComment";
+import { QueryCache } from "@tanstack/react-query";
 
 function FeedbackDetail() {
   const { feedbackId } = useParams();
-  const { isPending, isError, data } = useQuery({
-    queryKey: ["feedbacks"],
-    queryFn: () => fetchFeedbacks("http://127.0.0.1:8000/product-requests/"),
-    staleTime: 120000,
+  const queryCache = new QueryCache({
+    onError: (error) => {
+      console.log(error);
+    },
+    onSuccess: (data) => {
+      console.log(data);
+    },
   });
+  const query = queryCache.find({ queryKey: ["feedbacks"] });
 
-  const feedbackDetails = data?.filter(
+  const feedbackDetails = query?.filter(
     (item) => item.id === parseInt(feedbackId as string)
   );
+
+  console.log(query);
   return (
     <div className="px-5 py-10 bg-[#F7F8FD] space-y-5 md:px-10 max-w-[730px] mx-auto">
-      {isPending && <h1>Loading data...</h1>}
-      {isError && <FeedBackError />}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-5">
           <img src="/public/assets/shared/icon-arrow-left.svg" />

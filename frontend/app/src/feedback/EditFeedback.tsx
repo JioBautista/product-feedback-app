@@ -1,6 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import { fetchFeedbacks } from "../api/fetchFeedbacks";
+import { useStore } from "../store/useStore";
 function EditFeedback() {
   interface Data {
     id: number;
@@ -12,13 +11,9 @@ function EditFeedback() {
     comments: [];
   }
   const { feedbackId } = useParams();
-  const { data } = useQuery({
-    queryKey: ["feedbacks"],
-    queryFn: () => fetchFeedbacks("http://127.0.0.1:8000/product-requests/"),
-    staleTime: 120000,
-  });
+  const feedbacksData = useStore((state) => state.data);
 
-  const feedbackDetails: Data[] | undefined = data?.filter(
+  const feedbackDetails: Data[] | undefined = feedbacksData?.filter(
     (item) => item.id === parseInt(feedbackId as string)
   );
   return (

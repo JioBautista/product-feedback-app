@@ -1,10 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
 import FeedBackError from "./FeedBackError";
 import FeedbackCard from "./FeedbackCard";
+import { useQuery } from "@tanstack/react-query";
 import { fetchFeedbacks } from "../api/fetchFeedbacks";
 
 function Feedback() {
-  const { isPending, isError, data } = useQuery({
+  const { data } = useQuery({
     queryKey: ["feedbacks"],
     queryFn: () => fetchFeedbacks("http://127.0.0.1:8000/product-requests/"),
     staleTime: 120000,
@@ -13,9 +13,7 @@ function Feedback() {
   return (
     <div className={`bg-[#F7F8FD] px-5 lg:col-start-2 lg:col-end-4`}>
       <div className="container mx-auto py-10 space-y-5 lg:py-5">
-        {isPending && <h1>Loading data...</h1>}
-        {isError && <FeedBackError />}
-        <FeedbackCard data={data} />
+        {data ? <FeedbackCard data={data} /> : <FeedBackError />}
       </div>
     </div>
   );
