@@ -21,14 +21,24 @@ function NavMenu() {
   return (
     <>
       <div className="bg-white flex flex-wrap rounded-xl p-4 gap-3 max-w-[250px] lg:p-5">
-        <button {...buttonClasses}>All</button>
+        <button {...buttonClasses} onClick={() => handleString(null)}>
+          All
+        </button>
         <button {...buttonClasses} onClick={() => handleString("ui")}>
           UI
         </button>
-        <button {...buttonClasses}>UX</button>
-        <button {...buttonClasses}>Enhancement</button>
-        <button {...buttonClasses}>Bug</button>
-        <button {...buttonClasses}>Feature</button>
+        <button {...buttonClasses} onClick={() => handleString("ux")}>
+          UX
+        </button>
+        <button {...buttonClasses} onClick={() => handleString("enhancement")}>
+          Enhancement
+        </button>
+        <button {...buttonClasses} onClick={() => handleString("bug")}>
+          Bug
+        </button>
+        <button {...buttonClasses} onClick={() => handleString("feature")}>
+          Feature
+        </button>
       </div>
 
       <div className="bg-white p-4 rounded-xl space-y-3 lg:p-5">

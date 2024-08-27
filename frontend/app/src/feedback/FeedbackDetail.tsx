@@ -3,11 +3,13 @@ import FeedbackComments from "./FeedbackComments";
 import FeedbackCard from "./FeedbackCard";
 import AddComment from "./AddComment";
 import { useQuery } from "@tanstack/react-query";
+import { fetchFeedbacks } from "../api/fetchFeedbacks";
 
 function FeedbackDetail() {
   const { feedbackId } = useParams();
   const { data } = useQuery({
     queryKey: ["feedbacks"],
+    queryFn: () => fetchFeedbacks(`http://127.0.0.1:8000/product-requests/`),
     staleTime: 120000,
   });
 
