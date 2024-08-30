@@ -1,11 +1,13 @@
 import React from "react";
+import { useStore } from "../store/useStore";
 
 function SuggestionDropDown() {
+  const sort = useStore((state) => state.sort);
+  const setSort = useStore((state) => state.setSort);
   const [isOpen, setOpen] = React.useState(false);
-  const [title, setTitle] = React.useState("Most Upvotes");
 
   const dropDownSelection = (title: string) => {
-    setTitle(title);
+    setSort(title);
     setOpen(!isOpen);
   };
   return (
@@ -13,7 +15,7 @@ function SuggestionDropDown() {
       <div className="cursor-pointer" onClick={() => setOpen(!isOpen)}>
         <p>
           <span className="text-gray-300">Sort By :</span>
-          <span className="ml-2 font-semibold tracking-wide">{title}</span>
+          <span className="ml-2 font-semibold tracking-wide">{sort}</span>
         </p>
       </div>
       {isOpen ? (
