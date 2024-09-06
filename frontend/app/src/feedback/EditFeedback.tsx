@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
-import { useStore } from "../store/useStore";
+import { useQuery } from "@tanstack/react-query";
+import { fetchFeedbacks } from "../api/fetchFeedbacks";
 function EditFeedback() {
   interface Data {
     id: number;
@@ -11,11 +12,13 @@ function EditFeedback() {
     comments: [];
   }
   const { feedbackId } = useParams();
-  const feedbacksData = useStore((state) => state.data);
-
-  const feedbackDetails: Data[] | undefined = feedbacksData?.filter(
-    (item) => item.id === parseInt(feedbackId as string)
-  );
+  const { data }: Data | Error | any = useQuery({
+    queryKey: ["editFeedback", feedbackId],
+    queryFn: () =>
+      fetchFeedbacks(`http://127.0.0.1:8000/product-requests/${feedbackId}`),
+    staleTime: 120000,
+  });
+  console.log(data);
   return (
     <div className="px-5 py-10 space-y-10 max-w-[540px] mx-auto">
       <div className="flex items-center gap-5">
@@ -26,9 +29,7 @@ function EditFeedback() {
       </div>
 
       <div className="bg-white p-10 rounded-lg space-y-5">
-        <h1 className="font-bold text-2xl">{`Editing '${
-          feedbackDetails && feedbackDetails[0].title
-        }'`}</h1>
+        <h1 className="font-bold text-2xl">{`Editing '${data?.title}'`}</h1>
         <div>
           <h2 className="font-bold mb-1">Feedback Title</h2>
           <label className="mb-5 text-gray-500 block" htmlFor="title">
@@ -38,7 +39,7 @@ function EditFeedback() {
             className="bg-[#F7F8FD] p-5 cursor-pointer text-gray-800 w-full rounded-lg focus:bg-gray-200"
             id="title"
             name="title"
-            defaultValue={feedbackDetails && feedbackDetails[0].title}
+            defaultValue={data?.title}
           />
         </div>
 
@@ -51,13 +52,25 @@ function EditFeedback() {
             name="category"
             id="category"
             className="bg-[#F7F8FD] p-5 cursor-pointer text-gray-800 w-full rounded-lg border-r-8 border-transparent"
-            defaultValue={feedbackDetails && feedbackDetails[0].category}
           >
-            <option value={"Feature"}>Feature</option>
-            <option value={"UI"}>UI</option>
-            <option value={"UX"}>UX</option>
-            <option value={"Enhancement"}>Enhancement</option>
-            <option value={"Bug"}>Bug</option>
+            <option value={"Feature"} selected={data?.category === "feature"}>
+              Feature
+            </option>
+            <option value={"UI"} selected={data?.category === "UI"}>
+              UI
+            </option>
+            <option value={"UX"} selected={data?.category === "UX"}>
+              UX
+            </option>
+            <option
+              value={"Enhancement"}
+              selected={data?.category === "enhancement"}
+            >
+              Enhancement
+            </option>
+            <option value={"Bug"} selected={data?.category === "bug"}>
+              Bug
+            </option>
           </select>
         </div>
 
@@ -70,12 +83,26 @@ function EditFeedback() {
             name="category"
             id="category"
             className="bg-[#F7F8FD] p-5 cursor-pointer text-gray-800 w-full rounded-lg border-r-8 border-transparent"
-            defaultValue={feedbackDetails && feedbackDetails[0].status}
+            defaultValue={data?.status}
           >
-            <option value={"Suggestion"}>Suggestion</option>
-            <option value={"Planed"}>Planned</option>
-            <option value={"In-Progress"}>In-Progress</option>
-            <option value={"Live"}>Live</option>
+            <option
+              value={"Suggestion"}
+              selected={data?.status === "suggestion"}
+            >
+              Suggestion
+            </option>
+            <option value={"Planed"} selected={data?.status === "planned"}>
+              Planned
+            </option>
+            <option
+              value={"In-Progress"}
+              selected={data?.status === "in-progress"}
+            >
+              In-Progress
+            </option>
+            <option value={"Live"} selected={data?.status === "live"}>
+              Live
+            </option>
           </select>
         </div>
 
@@ -90,7 +117,7 @@ function EditFeedback() {
             name="details"
             id="details"
             rows={5}
-            defaultValue={feedbackDetails && feedbackDetails[0].description}
+            defaultValue={data?.description}
           ></textarea>
         </div>
 

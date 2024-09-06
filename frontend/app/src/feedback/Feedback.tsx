@@ -5,9 +5,18 @@ import { fetchFeedbacks } from "../api/fetchFeedbacks";
 import { useStore } from "../store/useStore";
 
 function Feedback() {
+  interface Data {
+    id: number;
+    title: string;
+    category: string;
+    upvotes: number;
+    status: string;
+    description: string;
+    comments: [];
+  }
   const filter = useStore((state) => state.filter);
   const sort = useStore((state) => state.sort);
-  const { data } = useQuery({
+  const { data }: Data[] | Error | any = useQuery({
     queryKey: ["feedbacks"],
     queryFn: () => fetchFeedbacks("http://127.0.0.1:8000/product-requests/"),
     staleTime: 120000,
@@ -26,7 +35,6 @@ function Feedback() {
   } else if (sort === "Least Comments") {
     filteredData?.sort((a, b) => a.comments.length - b.comments.length);
   }
-  console.log(filteredData);
   return (
     <div className={`bg-[#F7F8FD] px-5 lg:col-start-2 lg:col-end-4`}>
       <div className="container mx-auto py-10 space-y-5 lg:py-5">

@@ -16,7 +16,7 @@ function FeedbackUsers({ data }: any) {
     <>
       {data?.map((items: Comments) => (
         <React.Fragment key={items.id}>
-          <div className={`space-y-1`}>
+          <div className={`space-y-1`} key={items.id}>
             {/*This is where the avatar image, user details and reply button are contained in this div element  */}
             <div className="flex items-center gap-5">
               <img
