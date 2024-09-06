@@ -109,7 +109,7 @@ function EditFeedback() {
         <div>
           <h2 className="font-bold mb-1">Feedback Detail</h2>
           <label className="mb-5 text-gray-500 block" htmlFor="details">
-            Include any specific comments on what should be inporved, added,
+            Include any specific comments on what should be improved, added,
             etc.
           </label>
           <textarea
