@@ -24,10 +24,10 @@ function NavMenu() {
         <button {...buttonClasses} onClick={() => handleString(null)}>
           All
         </button>
-        <button {...buttonClasses} onClick={() => handleString("ui")}>
+        <button {...buttonClasses} onClick={() => handleString("UI")}>
           UI
         </button>
-        <button {...buttonClasses} onClick={() => handleString("ux")}>
+        <button {...buttonClasses} onClick={() => handleString("UX")}>
           UX
         </button>
         <button {...buttonClasses} onClick={() => handleString("enhancement")}>

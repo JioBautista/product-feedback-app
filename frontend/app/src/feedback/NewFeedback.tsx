@@ -8,21 +8,20 @@ function NewFeedback() {
     title: string;
     category: string;
     description: string;
+    upvotes: number;
+    status: string;
   }
   const mutation = useMutation({
-    mutationFn: (data) => {
-      axios
-        .post("http://127.0.0.1:8000/product-requests/", data)
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+    mutationFn: (data: NewFeedback) => {
+      return axios.post("http://127.0.0.1:8000/product-requests/", data);
     },
   });
 
-  const { register, handleSubmit } = useForm<NewFeedback>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<NewFeedback>();
   const onSubmit: SubmitHandler<NewFeedback> = (data) => {
     const defaultData = { upvotes: 0, status: "suggestion" };
     const newFeedback = { ...data, ...defaultData };
@@ -48,8 +47,10 @@ function NewFeedback() {
               Add a short, descriptive headline
             </label>
             <input
-              className="bg-[#F7F8FD] p-5 cursor-pointer text-gray-800 w-full rounded-lg focus:bg-gray-200"
+              className={`bg-[#F7F8FD] p-5 cursor-pointer text-gray-800 w-full rounded-lg focus:bg-gray-200 invalid:outline-red-500`}
               id="title"
+              aria-invalid={errors.title ? "true" : "false"}
+              required
               {...register("title")}
             />
           </div>
@@ -79,8 +80,9 @@ function NewFeedback() {
               etc.
             </label>
             <textarea
-              className="bg-[#F7F8FD] p-5 cursor-pointer text-gray-800 w-full rounded-lg focus:bg-gray-200"
+              className="bg-[#F7F8FD] p-5 cursor-pointer text-gray-800 w-full rounded-lg focus:bg-gray-200 invalid:outline-red-500"
               id="details"
+              required
               {...register("description")}
             ></textarea>
           </div>
