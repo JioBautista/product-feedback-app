@@ -31,7 +31,7 @@ function EditFeedback() {
       </div>
 
       <div className="bg-white p-10 rounded-lg">
-        <FeedbackForm data={data}>
+        <FeedbackForm>
           <div className="space-y-5 md:grid-cols-3 md:grid md:space-y-0 md:items-center mt-3">
             <button className="bg-blue-500 py-3 px-4 rounded-lg font-semibold tracking-wide text-white w-full md:order-last md:justify-self-end md:w-auto text-sm hover:bg-[#C75AF6]">
               Save Changes
