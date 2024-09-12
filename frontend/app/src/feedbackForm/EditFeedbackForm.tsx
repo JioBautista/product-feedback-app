@@ -27,7 +27,7 @@ function FeedbackForm({ children }) {
   const mutation = useMutation({
     mutationFn: async (data: NewFeedback) => {
       return axios
-        .put(`http://127.0.0.1:8000/product-requests/${feedbackId}/`, data)
+        .patch(`http://127.0.0.1:8000/product-requests/${feedbackId}/`, data)
         .then((res) => {
           console.log(res);
         })
