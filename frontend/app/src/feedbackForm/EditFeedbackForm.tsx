@@ -4,7 +4,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { fetchFeedbacks } from "../api/fetchFeedbacks";
 import axios from "axios";
 
-function FeedbackForm({ children }) {
+function FeedbackForm({ children }: any) {
   interface NewFeedback {
     title: string;
     category: string;
