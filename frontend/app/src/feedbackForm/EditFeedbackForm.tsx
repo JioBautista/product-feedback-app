@@ -25,8 +25,15 @@ function FeedbackForm({ children }) {
   const { feedbackId } = useParams();
 
   const mutation = useMutation({
-    mutationFn: (data: NewFeedback) => {
-      return axios.post("http://127.0.0.1:8000/product-requests/", data);
+    mutationFn: async (data: NewFeedback) => {
+      return axios
+        .put(`http://127.0.0.1:8000/product-requests/${feedbackId}/`, data)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   });
 
@@ -79,34 +86,13 @@ function FeedbackForm({ children }) {
           className="bg-[#F7F8FD] p-5 cursor-pointer text-gray-800 w-full rounded-lg border-r-8 border-transparent"
           id="category"
           {...register("category")}
+          defaultValue={data?.category}
         >
-          <option value={"Feature"} defaultValue={data?.category}>
-            Feature
-          </option>
-          <option
-            value={"UI"}
-            selected={data?.category ? data.category === "UI" : false}
-          >
-            UI
-          </option>
-          <option
-            value={"UX"}
-            selected={data?.category ? data.category === "UX" : false}
-          >
-            UX
-          </option>
-          <option
-            value={"Enhancement"}
-            selected={data?.category ? data.category === "enhancement" : false}
-          >
-            Enhancement
-          </option>
-          <option
-            value={"Bug"}
-            selected={data?.category ? data.category === "bug" : false}
-          >
-            Bug
-          </option>
+          <option value={"Feature"}>Feature</option>
+          <option value={"UI"}>UI</option>
+          <option value={"UX"}>UX</option>
+          <option value={"Enhancement"}>Enhancement</option>
+          <option value={"Bug"}>Bug</option>
         </select>
       </div>
 
