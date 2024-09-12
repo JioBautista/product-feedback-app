@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import FeedbackForm from "../feedbackForm/FeedbackForm";
+import NewFeedbackForm from "../feedbackForm/NewFeedbackForm";
 
 function NewFeedback() {
   return (
@@ -12,7 +12,7 @@ function NewFeedback() {
       </div>
 
       <div className="bg-white p-10 rounded-lg">
-        <FeedbackForm>
+        <NewFeedbackForm>
           <div className="space-y-5 md:flex md:flex-row-reverse md:items-center md:space-y-0 md:gap-5 mt-3">
             <button
               className="bg-blue-500 px-4 py-3 rounded-lg font-semibold tracking-wide text-white w-full md:w-auto text-sm hover:bg-[#C75AF6]"
@@ -24,7 +24,7 @@ function NewFeedback() {
               Cancel
             </button>
           </div>
-        </FeedbackForm>
+        </NewFeedbackForm>
       </div>
     </div>
   );
