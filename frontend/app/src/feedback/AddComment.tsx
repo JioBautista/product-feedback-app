@@ -1,4 +1,23 @@
+import { useParams } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
+import { useForm, SubmitHandler } from "react-hook-form";
+import axios from "axios";
+
 function AddComment() {
+  const { feedbackId } = useParams();
+
+  const mutation = useMutation({
+    mutationFn: async (data) => {
+      return axios
+        .patch(`http://127.0.0.1:8000/product-requests/${feedbackId}/`, data)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  });
   return (
     <div className="bg-white p-5 rounded-lg lg:p-8">
       <h1 className="text-lg font-semibold tracking-wide mb-5">Add Comment</h1>
