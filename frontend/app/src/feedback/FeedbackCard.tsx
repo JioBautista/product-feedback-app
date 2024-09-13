@@ -21,7 +21,7 @@ function FeedbackCard({ data }: any) {
               <Link className="block" to={`/${items.id}`}>
                 <h1 className="font-bold hover:text-blue-500">{items.title}</h1>
               </Link>
-              <p className="text-gray-500 mb-3">{items.description}</p>
+              <p className="text-gray-500 mb-3 w-96">{items.description}</p>
               <span className="bg-blue-100 text-blue-500 font-bold px-5 py-2 rounded-lg inline-block">
                 {items.category.charAt(0).toUpperCase() +
                   items.category.slice(1)}
