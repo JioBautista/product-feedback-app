@@ -28,6 +28,10 @@ class CommentsSerializer(WritableNestedModelSerializer):
     user = UsersSerializer(required=False)
     replies = RepliesSerializer(many=True, required=False)
 
+    def update(self, instance, validated_data):
+        print(validated_data)
+        return super().update(instance, validated_data)
+
     class Meta:
         model = Comments
         fields = ["id", "content", "user", "replies"]
