@@ -42,7 +42,9 @@ function FeedbackCard({ data }: any) {
 
             <div className="flex items-center gap-2 justify-self-end">
               <img src="/public/assets/shared/icon-comments.svg" />
-              <p className="font-bold text-lg">{items.comments.length}</p>
+              <p className="font-bold text-lg">
+                {items.comments ? items.comments.length : 0}
+              </p>
             </div>
           </div>
         </React.Fragment>

@@ -24,7 +24,7 @@ function NewFeedbackForm({ children }: any) {
   } = useForm<NewFeedback>();
 
   const onSubmit: SubmitHandler<NewFeedback> = (data) => {
-    const defaultData = { upvotes: 0, status: "suggestion" };
+    const defaultData = { upvotes: 0, status: "suggestion", comments: {} };
     const newFeedback = { ...data, ...defaultData };
 
     mutation.mutate(newFeedback);

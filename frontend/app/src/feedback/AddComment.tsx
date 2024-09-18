@@ -29,7 +29,7 @@ function AddComment() {
       username: "velvetround",
     };
     const commentData = { user: currentUser, ...data, replies: [] };
-    const commentField = { comments: [commentData] };
+    const commentField = { comments: commentData };
     mutation.mutate(commentField);
     console.log(commentField);
   };

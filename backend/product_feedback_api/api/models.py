@@ -16,18 +16,24 @@ class Replies(models.Model):
 
 
 class Comments(models.Model):
-    content = models.CharField(max_length=255)
+    content = models.CharField(max_length=255, null=True, blank=True)
     user = models.ForeignKey(Users, on_delete=models.CASCADE, blank=True, null=True)
-    replies = models.ManyToManyField(Replies)
+    replies = models.OneToOneField(
+        Replies, on_delete=models.CASCADE, null=True, blank=True
+    )
 
 
 class ProductRequests(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, null=True)
     category = models.CharField(max_length=255)
-    upvotes = models.IntegerField(default=0)
+    upvotes = models.IntegerField(
+        default=0,
+    )
     status = models.CharField(max_length=255)
-    description = models.CharField(max_length=255)
-    comments = models.ManyToManyField(Comments)
+    description = models.CharField(max_length=255, null=True)
+    comments = models.OneToOneField(
+        Comments, on_delete=models.CASCADE, null=True, blank=True
+    )
 
 
 class CurrentUser(models.Model):

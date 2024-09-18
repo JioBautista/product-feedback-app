@@ -12,7 +12,9 @@ function FeedbackComments({ data }: any) {
       username: string;
     };
   }
-  const comments: Comments[] = data && data[0].comments;
+  const comments: Comments[] = [];
+  comments.push(data?.comments);
+  console.log(data);
   return (
     <div className="bg-white rounded-md p-8 space-y-1">
       <h1 className="text-xl font-semibold">
@@ -24,8 +26,8 @@ function FeedbackComments({ data }: any) {
         </div>
         <div className="pl-6 space-y-10 border-l-2">
           {comments?.map((items) => (
-            <React.Fragment key={items.id}>
-              <FeedbackUsers data={items.replies} />
+            <React.Fragment key={items?.id}>
+              <FeedbackUsers data={items?.replies} />
             </React.Fragment>
           ))}
         </div>
