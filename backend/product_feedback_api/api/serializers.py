@@ -34,7 +34,7 @@ class CommentsSerializer(WritableNestedModelSerializer):
 
 
 class ProductRequestSerializer(WritableNestedModelSerializer):
-    comments = CommentsSerializer()
+    comments = CommentsSerializer(many=True)
 
     class Meta:
         model = ProductRequests

@@ -15,14 +15,6 @@ class Replies(models.Model):
     user = models.ForeignKey(Users, on_delete=models.CASCADE, blank=True, null=True)
 
 
-class Comments(models.Model):
-    content = models.CharField(max_length=255, null=True, blank=True)
-    user = models.ForeignKey(Users, on_delete=models.CASCADE, blank=True, null=True)
-    replies = models.OneToOneField(
-        Replies, on_delete=models.CASCADE, null=True, blank=True
-    )
-
-
 class ProductRequests(models.Model):
     title = models.CharField(max_length=255, null=True)
     category = models.CharField(max_length=255)
@@ -31,8 +23,16 @@ class ProductRequests(models.Model):
     )
     status = models.CharField(max_length=255)
     description = models.CharField(max_length=255, null=True)
-    comments = models.OneToOneField(
-        Comments, on_delete=models.CASCADE, null=True, blank=True
+
+
+class Comments(models.Model):
+    productRequests = models.ForeignKey(
+        ProductRequests, related_name="comments", on_delete=models.CASCADE, null=True
+    )
+    content = models.CharField(max_length=255, null=True, blank=True)
+    user = models.ForeignKey(Users, on_delete=models.CASCADE, blank=True, null=True)
+    replies = models.OneToOneField(
+        Replies, on_delete=models.CASCADE, null=True, blank=True
     )
 
 
